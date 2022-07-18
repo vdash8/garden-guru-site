@@ -33,7 +33,7 @@ def run_model(filename):
             0: 'clay',
             1: 'loam'
         }
-        model = pickle.load(open("models/nusvc_soil.pkl", 'rb'))
+        model = pickle.load(open("static/models/nusvc_soil.pkl", 'rb'))
         predicted = int(model.predict(image)[0])
         predicted_soil = categories_dict[predicted]
         return predicted_soil
