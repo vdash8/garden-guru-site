@@ -4,15 +4,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /*
+          Figma Background for illustrative/preview purposes only.
+          You can remove this style tag with no consequence
+        */
+        body {background: #E5E5E5; }
+      </style>
 </head>
 <body>
 
-    <div class="frame">
-        {% include 'figures/edible_loam.html' %}
-        </div>
     
+    <div class=e10_2>
+        <div class=e8_2><div class=e6_8><span  class="e6_21"> <a href="{{ 'upload' }}"> Home</a> </span>
+        </div><div class=e6_9><span  class="e7_2">The Team</span></div>
+        <div class=e6_17><span  class="e7_4">Model</span>
+        </div><div class=e6_18><span  class="e7_5">Data</span></div>
+        <div class=e6_19><span  class="e7_6">Project Structure</span></div>
+    </div>
+</div>
 
-    <a href="{{ 'upload' }}"> Upload an image</a>
+
+    <!-- <div class="frame"> {% include 'figures/edible_loam.html' %} </div>-->
+    
 
 </body>
 </html>
