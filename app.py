@@ -14,7 +14,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route("/")
 def hello():
-    return render_template("index_landing_page.html")
+    return render_template("home.html")
 
 def run_model(filename):
     def preprocess_image(filename):
