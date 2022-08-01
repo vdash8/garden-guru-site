@@ -72,6 +72,7 @@ def run_model(filename):
         resized_img_arr = np.array(resized_img)
         # Flattening and resizing for model input
         flattened_img_arr = resized_img_arr.flatten().reshape(1, -1)
+        os.remove(image_path)
         return flattened_img_arr 
 
     def predict(image):
@@ -111,6 +112,14 @@ def upload_file():
         print("File uploaded successfully.")
         return run_model(filename)
     return render_template("upload.html")
+
+@app.route("/overview")
+def get_overview():
+    return render_template("overview.html")
+
+@app.route("/home")
+def return_home():
+    return render_template("home.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

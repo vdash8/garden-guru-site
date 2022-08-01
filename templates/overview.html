@@ -3,13 +3,13 @@
 
 <head>
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet" />
-     <title>GardenGuru</title>
+     <title>Overview</title>
 </head>
 
 <body>
     <!-- <div class="home"> -->
         <div class="menu">
-            <span class="garden_guru">GardenGuru</span>
+            <a href="{{ 'home' }}"><span class="garden_guru">GardenGuru</span></a>
 
             <div class="other_buttons">
                 <a href="{{ 'upload' }}"><span class="get_started">Get Started</span></a>
@@ -17,20 +17,15 @@
             </div>
         </div>
     <div class="about_us">
-        <span class="header2">What is it?</span>
+        <span class="header2">The Data</span>
         <span class="v20_63">
-            Have you ever tried to start a garden? For a beginning gardener, the amount of information is 
-            too intimidating, often minimally relevant. 
+            Our initial dataset was obtained by scraping google search images 
+            for each soil class.  
             
-            <p>GardenGuru solves all your research issues. 
-                We provide you with plant recommendations based on a picture of the
-                soil you plan to start with. This reduces the research workload on your side.</p> 
-            
-            <p>Simply provide us with a soil
-                picture, and whether you wish to plant a medicinal or edible plant. Then, we will provide you with a wide
-                selection of plants to choose from.</p>    
+            <p>These image data are fed to a model that predicts the soil type.</p> 
+               
         </span>
-        <span class="v205_2">The Team</span>
+        <span class="v205_2">Model</span>
         <span class="v205_3">
             
             The GardenGuru Team is composed of Jorgiana, Varun, and Carlos. We are are a group of graduate students at UC
