@@ -4,6 +4,8 @@ import os
 import cv2 
 import numpy as np 
 import pickle
+import plotly.express as px
+import pandas as pd
 
 UPLOAD_FOLDER = 'static/uploads/'
 ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg"}
@@ -15,6 +17,50 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 @app.route("/")
 def hello():
     return render_template("index_landing_page.html")
+
+def generate_sunburst(df,
+                     soil,
+                     want_edible=True,
+                     want_medicinal=False, 
+                     desired_edible_rating=5,
+                     desired_medicinal_rating=None,
+                     sunburst_path=["Continent", "Family", "Common name"]):
+    """
+    Plots sunburst chart for soil type SOIL, from main dataframe DF. By default, plots
+    plants with the highest edibility rating. Can modify default parameters to plot 
+    medicinal plants instead. Uses plotly.express for sunburst plot. 
+    """
+    
+    if soil.lower() == "clay":
+        soil_df = df[df['Heavy clay'] == True]
+    else: 
+        soil_df = df[df['Cultivation details'].str.contains('loam') == True]
+        
+    if want_edible:
+        desired_plant_attribute = "EdibilityRating"
+        desired_rating = desired_edible_rating
+        sunburst_values="EdibilityRating"
+    
+    elif want_medicinal: 
+        desired_plant_attribute = "MedicinalRating"
+        desired_rating = desired_medicinal_rating
+        sunburst_values="MedicinalRating"
+    
+    # Removing all plants with NULL continent data 
+    cleaned_soil_df = soil_df[~soil_df["Continent"].isna()]
+    # Removing all plants with undesired values
+    desired_rating_df = cleaned_soil_df[cleaned_soil_df[desired_plant_attribute] == desired_rating]
+    
+    # Creating a list of columns needed for sunburst plotting purposes
+    cols = list(sunburst_path) + [sunburst_values]
+    truncated_soil_df = desired_rating_df[cols]
+    
+    # Plotting code 
+    fig = px.sunburst(truncated_soil_df, 
+                      path=sunburst_path, 
+                      values=sunburst_values)
+    
+    return fig   
 
 def run_model(filename):
     def preprocess_image(filename):
@@ -41,7 +87,13 @@ def run_model(filename):
     image = preprocess_image(filename)
     predicted_soil = predict(image)
 
-    return predicted_soil
+    plants = pd.read_csv("static/data/cleaned_plants.csv")
+
+    sunburst = generate_sunburst(plants, predicted_soil)
+
+    sunburst.show()
+
+    return 
 
 @app.route("/upload", methods=['GET', 'POST'])
 def upload_file():
