@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet" />
+    <script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>
+     <title>GardenGuru</title>
+</head>
+
+<body>
+    <!-- <div class="home"> -->
+        <div class="menu">
+            <span class="garden_guru">GardenGuru</span>
+
+            <div class="other_buttons">
+                <a href="{{ 'upload' }}"><span class="get_started">Get Started</span></a>
+                <a href="{{ 'overview' }}"><span class="overview">Overview</span></a>
+            </div>
+        </div>
+    <div id="sunburst">
+      {{ sunburst_chart }}
+    </div>
+  <!-- </div> -->
+</body>
+
+</html> <br /><br />
+<style>
+  /* * {
+    box-sizing: border-box;
+  } */
+  a:link {
+    display: flex;
+    text-decoration: none;
+  }
+
+  a:visited {
+    display: flex;
+    text-decoration: none;
+  }
+
+  a:hover {
+    display: flex;
+    text-decoration: #FFFF;
+  }
+
+  div#sunburst {
+    width:350px;
+    height: 500px;
+  }
+
+  body {
+    /* font-size: 14px;
+    overflow-y: scroll;
+    background: #395548; */
+
+    /* Auto layout */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 73px;
+
+    position: relative;
+
+    background: #395548;
+  }
+
+
+  .menu {
+    position: sticky;
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 30px 0px;
+    gap: 610px;
+
+    background: #28282B;
+    /* Inside auto layout */
+  }
+
+  .garden_guru {
+    width: 388px;
+    height: 76px;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 82px;
+    text-align: center;
+    color: #98FB98;
+    /* Inside auto layout */
+    order: 0;
+    flex-grow: 0;
+    justify-content: center;
+  }
+
+  .other_buttons {
+    /* Other Buttons */
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 0px;
+    width: 488px;
+    height: 47px;
+    /* Inside auto layout */
+    flex: 1;
+    order: 1;
+    flex-grow: 0;
+  }
+
+  .get_started {
+    width: 244px;
+    height: 47px;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 38px;
+    text-align: center;
+    color: #98FB98;
+    /* Inside auto layout */
+    order: 1;
+    flex-grow: 0;
+  }
+
+  .overview {
+    /* Overview */
+    width: 244px;
+    height: 47px;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 38px;
+    text-align: center;
+    color: #98FB98;
+    /* Inside auto layout */
+    order: 0;
+    flex-grow: 0;
+  }
+
+  .about_us {
+    position: absolute;
+    /* About Us */
+    width: 946px;
+    height: 1088px;
+    top: 209px;
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+  .header2 {
+    width: 295px;
+    color: rgba(147, 197, 114, 1);
+    position: absolute;
+    top: 0px;
+    left: 312px;
+    font-family: Nunito;
+    font-weight: Bold;
+    font-size: 50px;
+    opacity: 1;
+    text-align: left;
+  }
+
+  .v20_63 {
+    width: 946px;
+    color: white;
+    position: absolute;
+    top: 116px;
+    left: 0px;
+    font-size: 24px;
+    opacity: 1;
+    text-align: left;
+    font-family: 'Nunito';
+}
+
+  .v205_2 {
+    width: 241px;
+    color: rgba(147, 197, 114, 1);
+    position: absolute;
+    top: 484px;
+    left: 324px;
+    font-family: Nunito;
+    font-weight: Bold;
+    font-size: 50px;
+    opacity: 1;
+    text-align: left;
+  }
+
+  .v205_3 {
+    width: 931px;
+    color: rgba(255, 255, 255, 1);
+    position: absolute;
+    top: 597px;
+    left: 7px;
+    font-family: Nunito;
+    font-weight: Regular;
+    font-size: 24px;
+    opacity: 1;
+    text-align: left;
+  }
+
+  .v32_10 {
+    width: 472px;
+    height: 68px;
+    background: rgba(107, 128, 102, 0.8899999856948853);
+    opacity: 1;
+    position: absolute;
+    top: 964px;
+    left: 211px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    
+  }
+
+  .v32_13 {
+    width: 290px;
+    color: rgba(144, 238, 144, 1);
+    position: absolute;
+    top: 972px;
+    left: 303px;
+    font-family: Nunito;
+    font-weight: Bold;
+    font-size: 40px;
+    opacity: 1;
+    text-align: left;
+  }
+
+  .v156_99 {
+    width: 470px;
+    height: 68px;
+    background: rgba(107, 128, 102, 0.8899999856948853);
+    opacity: 1;
+    position: absolute;
+    top: 1076px;
+    left: 213px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    
+  }
+
+  .v156_102 {
+    width: 470px;
+    height: 68px;
+    background: rgba(107, 128, 102, 0.8899999856948853);
+    opacity: 1;
+    position: absolute;
+    top: 847px;
+    left: 211px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    
+  }
+
+  .v156_104 {
+    width: 311px;
+    color: rgba(144, 238, 144, 1);
+    position: absolute;
+    top: 1080px;
+    left: 291px;
+    font-family: Nunito;
+    font-weight: Bold;
+    font-size: 40px;
+    opacity: 1;
+    text-align: left;
+  }
+
+  .v156_105 {
+    width: 299px;
+    color: rgba(144, 238, 144, 1);
+    position: absolute;
+    top: 857px;
+    left: 298px;
+    font-family: Nunito;
+    font-weight: Bold;
+    font-size: 40px;
+    opacity: 1;
+    text-align: left;
+  }
+</style>

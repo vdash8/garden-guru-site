@@ -1,10 +1,11 @@
-from flask import (Flask, render_template, request)
+from flask import (Flask, render_template, request, Markup)
 from werkzeug.utils import secure_filename
 import os 
 import cv2 
 import numpy as np 
 import pickle
 import plotly.express as px
+import plotly.offline as pyo
 import pandas as pd
 
 UPLOAD_FOLDER = 'static/uploads/'
@@ -91,10 +92,9 @@ def run_model(filename):
     plants = pd.read_csv("static/data/cleaned_plants.csv")
 
     sunburst = generate_sunburst(plants, predicted_soil)
-
-    sunburst.show()
-
-    return render_template("home.html")
+    
+    html_graph = Markup(pyo.plot(sunburst, output_type='div', include_plotlyjs=False))
+    return render_template("results.html", sunburst_chart=html_graph)
 
 @app.route("/upload", methods=['GET', 'POST'])
 def upload_file():
