@@ -8,40 +8,46 @@
 
 <body>
     <!-- <div class="home"> -->
-        <div class="menu">
+    <div class="menu">
             <a href="{{ 'home' }}"><span class="garden_guru">GardenGuru</span></a>
 
             <div class="other_buttons">
                 <a href="{{ 'upload' }}"><span class="get_started">Get Started</span></a>
                 <a href="{{ 'overview' }}"><span class="overview">Overview</span></a>
             </div>
-        </div>
-    <div class="about_us">
-        <span class="header2">The Data</span>
-        <span class="v20_63">
-            Our initial dataset was obtained by scraping google search images 
-            for each soil class.  
-            
-            <p>These image data are fed to a model that predicts the soil type.</p> 
-               
-        </span>
-        <span class="v205_2">Model</span>
-        <span class="v205_3">
-            
-            The GardenGuru Team is composed of Jorgiana, Varun, and Carlos. We are are a group of graduate students at UC
-            Berkeley. 
-            
-            <p> Like many others, when the COVID-19 pandemic struck, we turned to gardening as a hobby. Frustated with
-                how “gatekept” everything felt, the team set out to create GardenGuru.
-            </p>
-
-        </span>
-      <div class="v32_10"></div><span class="v32_13">Varun Dashora</span>
-      <div class="v156_99"></div>
-      <div class="v156_102"></div><span class="v156_104">Carlos Calderon</span><span class="v156_105">Jorgiana
-        Lopez</span>
     </div>
-  <!-- </div> -->
+    <div class="main">
+        <div class="header2">The Data</div>
+        
+        <div class="data">
+          Our initial dataset was obtained by scraping over 300 Google Images for each soil class.
+          <p> These image data were then fed to a series of models that predict the soil type. </p> 
+          <p> In our modeling phase, we determined the best performing model to be a NuSVC, a 
+            type of support vector classifier (SVC) that improves model generalizability.
+          </p> 
+               
+        </div>
+
+        <div class="model">How does it work?</div>
+          <div class="description">
+            GardenGuru can facilitate the garden-building process by providing soil-plant pairings through recommendations.
+             It is as easy as 1, 2, 3! 
+          </div>
+        
+        <div class="step_one">1. Upload an image of soil into GardenGuru</div>
+        <div class="step_two">2. GardenGuru will classify what type of soil you have.</div>
+        <div class="step_three">3. After deciphering the soil type, you will be provided 
+          with a series of plant recommendations</div>
+        
+        
+        <div class="start_planting">
+          <a href=" {{ 'upload' }}">
+            Start planting!
+          </a>
+        </div>
+
+    </div>
+
 </body>
 
 </html> <br /><br />
@@ -57,6 +63,7 @@
   a:visited {
     display: flex;
     text-decoration: none;
+    color: #93C572;
   }
 
   a:hover {
@@ -77,9 +84,7 @@
     align-items: center;
     padding: 0px;
     gap: 73px;
-
     position: relative;
-
     background: #395548;
   }
 
@@ -92,7 +97,6 @@
     align-items: flex-end;
     padding: 30px 0px;
     gap: 610px;
-
     background: #28282B;
     /* Inside auto layout */
   }
@@ -159,151 +163,165 @@
     flex-grow: 0;
   }
 
-  .about_us {
+  .main {
     position: absolute;
     /* About Us */
     width: 946px;
-    height: 1088px;
-    top: 209px;
+    height: 1247px;
+    left: 270px;
+    top: 199px;
     /* Inside auto layout */
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 42px;
+}
 
+  .header2 {
+    /* The Data */
+    width: 295px;
+    height: 65px;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 68px;
+    color: #93C572;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+
+  .data {
+    width: 946px;
+    height: 342px;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 33px;
+    color: #FFFFFF;
+
+    /* Inside auto layout */
     flex: none;
     order: 1;
     flex-grow: 0;
 }
 
-  .header2 {
-    width: 295px;
-    color: rgba(147, 197, 114, 1);
-    position: absolute;
-    top: 0px;
-    left: 312px;
-    font-family: Nunito;
-    font-weight: Bold;
-    font-size: 50px;
-    opacity: 1;
-    text-align: left;
-  }
-
-  .v20_63 {
-    width: 946px;
-    color: white;
-    position: absolute;
-    top: 116px;
-    left: 0px;
-    font-size: 24px;
-    opacity: 1;
-    text-align: left;
+  .model {
+    /* How does it work? */
+    width: 457px;
+    height: 79px;
     font-family: 'Nunito';
-}
-
-  .v205_2 {
-    width: 241px;
-    color: rgba(147, 197, 114, 1);
-    position: absolute;
-    top: 484px;
-    left: 324px;
-    font-family: Nunito;
-    font-weight: Bold;
+    font-style: normal;
+    font-weight: 700;
     font-size: 50px;
-    opacity: 1;
-    text-align: left;
+    line-height: 68px;
+    color: #93C572;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
   }
 
-  .v205_3 {
+  .description {
     width: 931px;
-    color: rgba(255, 255, 255, 1);
-    position: absolute;
-    top: 597px;
-    left: 7px;
-    font-family: Nunito;
-    font-weight: Regular;
+    height: 84px;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
     font-size: 24px;
-    opacity: 1;
-    text-align: left;
+    line-height: 33px;
+
+    color: #FFFFFF;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 3;
+    flex-grow: 0;
   }
 
-  .v32_10 {
-    width: 472px;
-    height: 68px;
-    background: rgba(107, 128, 102, 0.8899999856948853);
-    opacity: 1;
-    position: absolute;
-    top: 964px;
-    left: 211px;
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
-    border-bottom-left-radius: 40px;
-    border-bottom-right-radius: 40px;
-    
-  }
+  .step_one {
+    width: 877px;
+    height: 58px;
 
-  .v32_13 {
-    width: 290px;
-    color: rgba(144, 238, 144, 1);
-    position: absolute;
-    top: 972px;
-    left: 303px;
-    font-family: Nunito;
-    font-weight: Bold;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
     font-size: 40px;
-    opacity: 1;
-    text-align: left;
+    line-height: 55px;
+
+    color: #90EE90;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 4;
+    flex-grow: 0;
   }
 
-  .v156_99 {
-    width: 470px;
-    height: 68px;
-    background: rgba(107, 128, 102, 0.8899999856948853);
-    opacity: 1;
-    position: absolute;
-    top: 1076px;
-    left: 213px;
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
-    border-bottom-left-radius: 40px;
-    border-bottom-right-radius: 40px;
-    
-  }
+  .step_two {
+    width: 880px;
+    height: 111px;
 
-  .v156_102 {
-    width: 470px;
-    height: 68px;
-    background: rgba(107, 128, 102, 0.8899999856948853);
-    opacity: 1;
-    position: absolute;
-    top: 847px;
-    left: 211px;
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
-    border-bottom-left-radius: 40px;
-    border-bottom-right-radius: 40px;
-    
-  }
-
-  .v156_104 {
-    width: 311px;
-    color: rgba(144, 238, 144, 1);
-    position: absolute;
-    top: 1080px;
-    left: 291px;
-    font-family: Nunito;
-    font-weight: Bold;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
     font-size: 40px;
-    opacity: 1;
-    text-align: left;
+    line-height: 55px;
+
+    color: #90EE90;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 5;
+    flex-grow: 0;
   }
 
-  .v156_105 {
-    width: 299px;
-    color: rgba(144, 238, 144, 1);
-    position: absolute;
-    top: 857px;
-    left: 298px;
-    font-family: Nunito;
-    font-weight: Bold;
+  .step_three {
+    width: 877px;
+    height: 156px;
+
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
     font-size: 40px;
-    opacity: 1;
-    text-align: left;
+    line-height: 55px;
+
+    color: #90EE90;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 6;
+    flex-grow: 0;
+  }
+
+  .start_planting {
+    position: relative;
+    width: 363px;
+    height: 59px;
+
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 68px;
+
+    color: #93C572;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 7;
+    flex-grow: 0;
   }
 </style>
