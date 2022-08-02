@@ -17,6 +17,9 @@
                 <a href="{{ 'overview' }}"><span class="overview">Overview</span></a>
             </div>
         </div>
+        <div class="garden_guru_base">
+            Plant Recommendations:
+        </div>
     <div id="sunburst">
       {{ sunburst_chart }}
     </div>
@@ -45,7 +48,7 @@
 
   div#sunburst {
     width:350px;
-    height: 500px;
+    max-height: 500px;
   }
 
   body {
@@ -79,6 +82,19 @@
 
     background: #28282B;
     /* Inside auto layout */
+  }
+
+  .garden_guru_base {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 50px;
+    text-align: left;
+    color: #98FB98;
+    /* Inside auto layout */
+    order: 0;
+    flex-grow: 0;
   }
 
   .garden_guru {
