@@ -92,6 +92,7 @@ def run_model(filename):
     plants = pd.read_csv("static/data/cleaned_plants.csv")
 
     sunburst = generate_sunburst(plants, predicted_soil)
+    sunburst.show()
     
     html_graph = Markup(pyo.plot(sunburst, output_type='div', include_plotlyjs=False))
     return render_template("results.html", sunburst_chart=html_graph)
