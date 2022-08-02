@@ -94,7 +94,7 @@ def run_model(filename):
 
     sunburst.show()
 
-    return 
+    return render_template("home.html")
 
 @app.route("/upload", methods=['GET', 'POST'])
 def upload_file():
